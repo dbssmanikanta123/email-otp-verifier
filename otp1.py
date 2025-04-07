@@ -27,13 +27,13 @@ def send_otp(sender_email, receiver_email, otp):
         server.login(sender_email, email_password)
         server.send_message(msg)
         server.quit()
-        print(f"\n✅ OTP successfully sent to {receiver_email}")
+        print(f"\n OTP successfully sent to {receiver_email}")
 
     except smtplib.SMTPAuthenticationError:
-        print("❌ Authentication Error: Check your email and App Password.")
+        print("Authentication Error: Check your email and App Password.")
         exit()
     except Exception as e:
-        print(f"❌ An error occurred: {e}")
+        print(f" An error occurred: {e}")
         exit()
 
 def verify_otp(correct_otp):
@@ -42,14 +42,14 @@ def verify_otp(correct_otp):
         try:
             user_otp = int(input("\nEnter the OTP received: "))
             if user_otp == correct_otp:
-                print("✅ OTP Verification Successful!")
+                print(" OTP Verification Successful!")
                 return True
             else:
-                print("❌ Invalid OTP. Try again.")
+                print("Invalid OTP. Try again.")
         except ValueError:
-            print("❌ Please enter a valid numeric OTP.")
+            print("Please enter a valid numeric OTP.")
     
-    print("❌ Too many incorrect attempts. Verification failed.")
+    print("Too many incorrect attempts. Verification failed.")
     return False
 
 if __name__ == "__main__":
